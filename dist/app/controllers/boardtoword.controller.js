@@ -23,7 +23,7 @@ const BASEPATH = path_1.default.resolve(".");
 const generateWordFile = (request, response) => __awaiter(void 0, void 0, void 0, function* () {
     var _a;
     const { body } = request;
-    const path = PathHelper_1.PathHelper.getResolvedPath(`\\${TemplateHelper_1.TemplateHelper.folderName}\\template_${body.boardId}.docx`);
+    const path = PathHelper_1.PathHelper.getResolvedPath(`/${TemplateHelper_1.TemplateHelper.folderName}/template_${body.boardId}.docx`);
     if (FileHelper_1.FileHelper.checkExists(path)) {
         const binaryFile = FileHelper_1.FileHelper.readAsBinary(path);
         const zip = new pizzip_1.default(binaryFile);
@@ -54,7 +54,7 @@ const generateWordFile = (request, response) => __awaiter(void 0, void 0, void 0
 exports.generateWordFile = generateWordFile;
 const checkTemplateExist = (request, response) => __awaiter(void 0, void 0, void 0, function* () {
     const { body } = request;
-    const path = PathHelper_1.PathHelper.getResolvedPath(`\\${TemplateHelper_1.TemplateHelper.folderName}\\template_${body.boardId}.docx`);
+    const path = PathHelper_1.PathHelper.getResolvedPath(`/${TemplateHelper_1.TemplateHelper.folderName}/template_${body.boardId}.docx`);
     response.status(200).send({
         exist: FileHelper_1.FileHelper.checkExists(path),
     });

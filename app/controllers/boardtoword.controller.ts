@@ -10,7 +10,7 @@ import { TemplateHelper } from "../common/classes/TemplateHelper";
 const BASEPATH = path.resolve(".");
 export const generateWordFile = async (request: Express.Request, response: Express.Response) => {
   const { body } = request;
-  const path = PathHelper.getResolvedPath(`\\${TemplateHelper.folderName}\\template_${body.boardId}.docx`);
+  const path = PathHelper.getResolvedPath(`/${TemplateHelper.folderName}/template_${body.boardId}.docx`);
   if (FileHelper.checkExists(path)) {
     const binaryFile = FileHelper.readAsBinary(path);
     const zip = new PizZip(binaryFile);
@@ -43,7 +43,7 @@ export const generateWordFile = async (request: Express.Request, response: Expre
 
 export const checkTemplateExist = async (request: Express.Request, response: Express.Response) => {
   const { body } = request;
-  const path = PathHelper.getResolvedPath(`\\${TemplateHelper.folderName}\\template_${body.boardId}.docx`)
+  const path = PathHelper.getResolvedPath(`/${TemplateHelper.folderName}/template_${body.boardId}.docx`)
   response.status(200).send({
     exist: FileHelper.checkExists(path),
   });

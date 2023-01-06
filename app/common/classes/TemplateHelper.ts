@@ -12,7 +12,7 @@ export class TemplateHelper {
   };
   private static templateStorage = multer.diskStorage({
     destination: (req, file, cb) => {
-      cb(null, PathHelper.getResolvedPath(`\\${this.folderName}`));
+      cb(null, PathHelper.getResolvedPath(`/${this.folderName}`));
     },
     filename: (req, file, cb) => {
       console.log(file);

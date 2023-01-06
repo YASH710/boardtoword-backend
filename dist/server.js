@@ -20,7 +20,7 @@ app.use(express_1.default.json());
 app.use(errorHandlingMiddleware_1.default);
 app.use("/api/boardtoword", boardtoword_routes_1.default);
 app.use(errorHandlingMiddleware_1.default);
-const templateStoragepath = PathHelper_1.PathHelper.getResolvedPath(`\\${TemplateHelper_1.TemplateHelper.folderName}`);
+const templateStoragepath = PathHelper_1.PathHelper.getResolvedPath(`/${TemplateHelper_1.TemplateHelper.folderName}`);
 console.log(templateStoragepath, FileHelper_1.FileHelper.checkExists(templateStoragepath));
 if (!FileHelper_1.FileHelper.checkExists(templateStoragepath)) {
     FileHelper_1.FileHelper.makeDir(templateStoragepath);

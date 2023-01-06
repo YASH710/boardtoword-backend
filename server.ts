@@ -18,7 +18,7 @@ app.use(errorHandlingMiddleware)
 app.use("/api/boardtoword", BoardToWordRoutes);
 
 app.use(errorHandlingMiddleware)
-const templateStoragepath = PathHelper.getResolvedPath(`\\${TemplateHelper.folderName}`)
+const templateStoragepath = PathHelper.getResolvedPath(`/${TemplateHelper.folderName}`)
 console.log(templateStoragepath, FileHelper.checkExists(templateStoragepath));
 if(!FileHelper.checkExists(templateStoragepath)){
     FileHelper.makeDir(templateStoragepath)

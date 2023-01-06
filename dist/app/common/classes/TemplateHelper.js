@@ -22,7 +22,7 @@ TemplateHelper.templateTypeFilter = (req, file, cb) => {
 };
 TemplateHelper.templateStorage = multer_1.default.diskStorage({
     destination: (req, file, cb) => {
-        cb(null, PathHelper_1.PathHelper.getResolvedPath(`\\${_a.folderName}`));
+        cb(null, PathHelper_1.PathHelper.getResolvedPath(`/${_a.folderName}`));
     },
     filename: (req, file, cb) => {
         console.log(file);
