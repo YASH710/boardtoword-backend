@@ -78,7 +78,7 @@ export const createTable = (data : Record<string, any>[][]) => {
 
     // Create row for headers
     data[0].forEach((element) => {
-        tableRows += getCell(element.id);
+        tableRows += getCell(element.title);
     })
 
     tableRows += "</w:tr>";
