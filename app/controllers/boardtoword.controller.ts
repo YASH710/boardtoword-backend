@@ -1,13 +1,17 @@
 import * as Express from "express";
 import PizZip from "pizzip";
-import fs from "fs";
-import path from "path";
 import { createTable } from "../common/createXMLTable";
 import { PathHelper } from "../common/classes/PathHelper";
 import { FileHelper } from "../common/classes/FileHelper";
 import { TemplateHelper } from "../common/classes/TemplateHelper";
 
-const BASEPATH = path.resolve(".");
+/**
+ * This method will read xml data from docx file after compressing it as a zip and then replace the placeholde <<table>> 
+ * to generate the docx file with board data
+ * @param request Http Request
+ * @param response Http Response
+ * @returns Docx file with board data as a table
+ */
 export const generateWordFile = async (request: Express.Request, response: Express.Response) => {
   const { body } = request;
   const path = PathHelper.getResolvedPath(`/${TemplateHelper.folderName}/template_${body.boardId}.docx`);
@@ -41,6 +45,11 @@ export const generateWordFile = async (request: Express.Request, response: Expre
   }
 };
 
+/**
+ * This method will check if the template for current board already exist on the server 
+ * @param request Http Request
+ * @param response Http Response
+ */
 export const checkTemplateExist = async (request: Express.Request, response: Express.Response) => {
   const { body } = request;
   const path = PathHelper.getResolvedPath(`/${TemplateHelper.folderName}/template_${body.boardId}.docx`)
